@@ -1,0 +1,23 @@
+{
+  "name": "calculadora-dividendos-fii",
+  "version": "1.0.0",
+  "description": "Olá, como estudante na área de programação tenho problemas as vezes para escolher projetos para praticar. Sou um jovem investidor, então decidi fazer uma calculadora simples que me ajudasse a visualizar o valor que seria recebido por mês caso eu invista X em um fundo imobiliário que paga Y de dividendos por mês.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EtsonJr/calculadora-dividendos-fii.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EtsonJr/calculadora-dividendos-fii/issues"
+  },
+  "homepage": "https://github.com/EtsonJr/calculadora-dividendos-fii#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
