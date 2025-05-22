@@ -14,6 +14,7 @@ function calcular() {
   // Cálculos
   const cotasCompradas = Math.floor(valorInvestido / cotacaoAtual);
   const dividendosEstimados = cotasCompradas * dividendoPorCota;
+  
   function limpar() {
   // Limpar os campos de entrada
   document.getElementById("nomeFii").value = "";
