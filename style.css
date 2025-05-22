@@ -29,7 +29,7 @@ input, button {
 /* Botão */
 button {
   background-color: #2d6cdf;
-  color: white;
+  color: rgb(255, 255, 255);
   border: none;
   cursor: pointer;
 }
