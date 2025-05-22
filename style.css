@@ -38,8 +38,14 @@ button:hover {
   background-color: #1e4faa;
 }
 
+button:nth-of-type(2){
+    background-color: #888;
+}
+button:nth-of-type(2):hover{
+    background-color: #555;
+}
 /* Resultado da simulação */
 #resultado {
   margin-top: 20px;
-  font-weight: bold;
+  font-weight: Arial;
 }
