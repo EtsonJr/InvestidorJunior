@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora de Dividendos de FIIs</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Calculadora de Dividendos de FIIs</h1>
+
+    <label>Nome do Fundo Imobiliário:</label>
+    <input type="text" id="nomeFii" />
+
+    <label>Cotação atual (R$):</label>
+    <input type="number" id="cotacaoAtual" />
+
+    <label>Último dividendo pago (R$):</label>
+    <input type="number" id="dividendoPorCota" />
+
+    <label>Valor investido (R$):</label>
+    <input type="number" id="valorInvestido" />
+
+    <button onclick="calcular()">Calcular</button>
+
+    <div id="resultado"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
