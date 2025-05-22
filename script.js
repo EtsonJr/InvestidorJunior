@@ -14,17 +14,6 @@ function calcular() {
   // Cálculos
   const cotasCompradas = Math.floor(valorInvestido / cotacaoAtual);
   const dividendosEstimados = cotasCompradas * dividendoPorCota;
-  
-  function limpar() {
-  // Limpar os campos de entrada
-  document.getElementById("nomeFii").value = "";
-  document.getElementById("cotacaoAtual").value = "";
-  document.getElementById("dividendoPorCota").value = "";
-  document.getElementById("valorInvestido").value = "";
-
-  // Limpar o resultado
-  document.getElementById("resultado").innerHTML = "";
-}
 
   // Mostrar resultado na div
   const resultadoDiv = document.getElementById("resultado");
@@ -33,4 +22,15 @@ function calcular() {
     <p>Você compraria <strong>${cotasCompradas}</strong> cotas.</p>
     <p>Receberia aproximadamente <strong>R$ ${dividendosEstimados.toFixed(2)}</strong> por mês.</p>
   `;
+}
+
+function limpar() {
+  // Limpar os campos de entrada
+  document.getElementById("nomeFii").value = "";
+  document.getElementById("cotacaoAtual").value = "";
+  document.getElementById("dividendoPorCota").value = "";
+  document.getElementById("valorInvestido").value = "";
+
+  // Limpar o resultado
+  document.getElementById("resultado").innerHTML = "";
 }
