@@ -1,5 +1,3 @@
-const ctx = document.getElementById("grafico").getContext("2d");
-
 function calcular() {
   const capitalInicial = parseFloat(document.getElementById("capitalInicial").value);
   const aporteMensal = parseFloat(document.getElementById("aporteMensal").value);
@@ -58,12 +56,14 @@ function limpar() {
 }
 
 function renderizarGrafico(dados) {
-  const unidade = document.getElementById("tipoPeriodo").value;
-  const rotulos = dados.map((_, i) => unidade === "anos" ? `Ano ${Math.floor(i / 12)}` : `Mês ${i}`);
+  const ctx = document.getElementById("grafico").getContext("2d");
 
+  // Destroi gráfico anterior, se existir
   if (window.grafico) {
     window.grafico.destroy();
   }
+
+  const rotulos = dados.map((_, i) => `Mês ${i}`);
 
   window.grafico = new Chart(ctx, {
     type: "line",
@@ -86,17 +86,17 @@ function renderizarGrafico(dados) {
         x: {
           title: {
             display: true,
-            text: unidade === "anos" ? "Anos" : "Meses"
+            text: "Período"
           }
         },
         y: {
           title: {
             display: true,
             text: "Valor (R$)"
-          }
+          },
+          beginAtZero: true
         }
       }
     }
   });
 }
-
