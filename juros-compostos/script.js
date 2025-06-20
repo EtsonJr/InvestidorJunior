@@ -50,18 +50,18 @@ function limpar() {
   document.getElementById("taxaJuros").value = "";
   document.getElementById("periodo").value = "";
   document.getElementById("resultado").innerHTML = "";
-  if (window.grafico) {
-    window.grafico.destroy();
-  }
+  if (window.grafico && typeof window.grafico.destroy === 'function') {
+  window.grafico.destroy();
+}
 }
 
 function renderizarGrafico(dados) {
   const ctx = document.getElementById("grafico").getContext("2d");
 
   // Destroi gráfico anterior, se existir
-  if (window.grafico) {
-    window.grafico.destroy();
-  }
+  if (window.grafico && typeof window.grafico.destroy === 'function') {
+  window.grafico.destroy();
+}
 
   const rotulos = dados.map((_, i) => `Mês ${i}`);
 
