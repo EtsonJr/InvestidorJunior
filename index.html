@@ -1,20 +1,272 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadoras Financeiras</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Investidor Junior</title>
+  <meta name="description" content="Ferramentas financeiras para jovens iniciantes no mundo dos investimentos." />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  
+  <style>
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f4f4f4;
+      color: #1e1e2f;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    a {
+      text-decoration: none;
+      color: #2d6cdf;
+      transition: color 0.3s ease;
+    }
+
+    a:hover,
+    a:focus {
+      color: #1e4faa;
+    }
+
+    /* ====== CABEÇALHO ====== */
+    header {
+      background: white;
+      padding: 15px 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* Logo estilo com span */
+    .logo {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1.8rem;
+      cursor: default;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo .blue {
+      color: #2d6cdf;
+    }
+
+    .logo .dark {
+      color: #1e1e2f;
+      font-weight: 700;
+    }
+
+    /* Logo ícone - foguete SVG simples */
+    .logo svg {
+      width: 28px;
+      height: 28px;
+      fill: #2d6cdf;
+    }
+
+    nav a {
+      margin-left: 20px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    nav a:first-child {
+      margin-left: 0;
+    }
+
+    /* ====== HERO ====== */
+    .hero {
+      background: white;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(45, 108, 223, 0.15);
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      color: #2d6cdf;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      margin-bottom: 32px;
+      color: #333;
+    }
+
+    .btn {
+      background-color: #2d6cdf;
+      color: white;
+      padding: 14px 36px;
+      font-weight: 600;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 1.125rem;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+      user-select: none;
+    }
+
+    .btn:hover,
+    .btn:focus {
+      background-color: #1e4faa;
+      outline: none;
+    }
+
+    /* ====== SEÇÃO CALCULADORAS ====== */
+    #calculadoras {
+      max-width: 1000px;
+      margin: 0 auto 60px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: box-shadow 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover,
+    .card:focus-within {
+      box-shadow: 0 8px 24px rgba(45, 108, 223, 0.3);
+      outline: none;
+    }
+
+    .card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+      color: #2d6cdf;
+    }
+
+    .card p {
+      flex-grow: 1;
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 16px;
+    }
+
+    .card button {
+      align-self: flex-start;
+      background-color: #16a34a;
+      border: none;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .card button:hover,
+    .card button:focus {
+      background-color: #0f7c2f;
+      outline: none;
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: #1e1e2f;
+      color: white;
+      text-align: center;
+      padding: 18px 30px;
+      font-size: 0.875rem;
+      user-select: none;
+    }
+
+    /* ====== RESPONSIVIDADE ====== */
+    @media (max-width: 600px) {
+      header {
+        justify-content: center;
+      }
+      nav {
+        width: 100%;
+        margin-top: 12px;
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Calculadoras Financeiras</h1>
-    <p>Escolha a calculadora que deseja usar:</p>
+  <header>
+    <div class="logo" aria-label="Logo Investidor Junior">
+      <!-- Ícone foguete SVG -->
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" >
+        <path d="M2.5 19.5l4-4 2 2 3-6-6 3-2-2-4 4v1.5h3v3h1.5zM17 4l-3 3 5.5 5.5 3-3L17 4z"/>
+      </svg>
+      <span class="blue">Investidor</span><span class="dark">Junior</span>
+    </div>
+    <nav role="navigation" aria-label="Menu principal">
+      <a href="#calculadoras">Calculadoras</a>
+      <a href="#sobre">Sobre</a>
+    </nav>
+  </header>
 
-    <ul>
-      <li><a href="fii/index.html">📊 Calculadora de Dividendos de FIIs</a></li>
-      <li><a href="juros-compostos/index.html">📈 Calculadora de Juros Compostos</a></li>
-    </ul>
-  </div>
+  <main>
+    <section class="hero" role="banner">
+      <h2>Comece sua jornada financeira agora!</h2>
+      <p>Ferramentas simples e poderosas para você dominar seu dinheiro, do zero.</p>
+      <a href="#calculadoras" class="btn">Ver Calculadoras</a>
+    </section>
+
+    <section id="calculadoras" aria-label="Seção de calculadoras financeiras">
+      <article class="card" tabindex="0">
+        <h3>Calculadora de Juros Compostos</h3>
+        <p>Veja como seu dinheiro cresce ao longo do tempo com juros compostos.</p>
+        <button>Usar</button>
+      </article>
+      <article class="card" tabindex="0">
+        <h3>Calculadora de Dividendos de FIIs</h3>
+        <p>Calcule os dividendos mensais que você pode receber dos seus fundos imobiliários.</p>
+        <button>Usar</button>
+      </article>
+      <article class="card" tabindex="0">
+        <h3>Calculadora de Aporte Mensal</h3>
+        <p>Descubra o impacto dos seus aportes mensais no seu patrimônio.</p>
+        <button>Usar</button>
+      </article>
+    </section>
+
+    <section id="sobre" style="max-width: 900px; margin: 0 auto 60px auto; padding: 0 20px;">
+      <h2>Sobre o Investidor Junior</h2>
+      <p>Este projeto foi criado para ajudar jovens investidores a começarem sua jornada financeira com ferramentas fáceis e práticas. Nossa missão é descomplicar o mundo das finanças e empoderar quem está começando.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Investidor Junior. Feito com 💙 por Etson.</p>
+  </footer>
 </body>
 </html>
